@@ -30,6 +30,9 @@ jobs:
         run: |
           docker build -t swiftsci-backend .
           docker run -d -p 5000:5000 swiftsci-backend
+      - name: Close the Docker Container
+        run: |
+          docker stop swiftsci-backend
         
         
 

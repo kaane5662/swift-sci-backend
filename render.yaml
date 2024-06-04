@@ -4,11 +4,10 @@ services:
     name: swiftsci-backend
     repo: https://github.com/kaane5662/swift-sci-backend
     plan: free
-    dockerfilePath: Dockerfile
+    dockerfilePath: ./Dockerfile
     # dockerCommand: | 
     #   docker build -t swiftsci-backend .
     #   docker run -d -p 5000:5000 swiftsci-backend
-    rootDir: ./
     scaling: # Autoscaling configuration
       minInstances: 1
       maxInstances: 3
