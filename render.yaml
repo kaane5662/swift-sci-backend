@@ -5,6 +5,7 @@ services:
     repo: https://github.com/kaane5662/swift-sci-backend
     plan: free
     dockerfilePath: ./Dockerfile
+    autoDeploy: false
     # dockerCommand: | 
     #   docker build -t swiftsci-backend .
     #   docker run -d -p 5000:5000 swiftsci-backend

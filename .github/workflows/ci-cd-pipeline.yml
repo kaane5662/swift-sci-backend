@@ -33,7 +33,21 @@ jobs:
       - name: Close the Docker Container
         run: |
           docker stop swiftsci-backend
-        
+
+  deploy:
+    needs:  build-and-test
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Deploy to Render
+      if: github.ref == 'refs/heads/main'
+      env:
+        deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+      run: |
+        curl "$deploy_url" 
         
 
 
