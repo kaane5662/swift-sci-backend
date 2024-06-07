@@ -17,6 +17,7 @@ documents = []
 print("Setting up documents")
 for article in articles_data:
     for header, content in article.items():
+        if content == "": continue
         document = Document(page_content=content, metadata = {"header":header})
         documents.append(document)
 

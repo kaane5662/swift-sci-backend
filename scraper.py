@@ -24,31 +24,31 @@ def scrape_article():
         paras = article_content.find_elements(By.TAG_NAME, "p")
 
         article_content = {
+            "abstract": "",
             "introduction": "",
             "methodology": "",
-            "analysis":"",
             "results": "",
-            "limitations": "",
             "discussion": "",
             "conclusion": "",
             "references": ""
         }
-        current_header = "introduction"
+        current_header = "abstract"
         for para in paras:
             # print(para.text)
+
+            if ("abstr" in para.text.lower() or "abstr" in para.text.lower()) and len(para.text) < 45:
+                current_header = "abstract"
             if ("intro" in para.text.lower() or "backgr" in para.text.lower()) and len(para.text) < 45:
                 current_header = "introduction"
-            elif "method" in para.text.lower() and len(para.text) < 45:
+            elif "method" in para.text.lower() or "materi" in para.text.lower() and len(para.text) < 45:
                 current_header = "methodology"
-            elif "analy" in para.text.lower() and len(para.text) < 45:
-                current_header = "analysis"
+            # elif "analy" in para.text.lower() and len(para.text) < 45:
+            #     current_header = "analysis"
             elif "results" in para.text.lower() and len(para.text) < 45:
                 current_header = "results"
             elif "discussion" in para.text.lower() and len(para.text) < 45:
                 current_header = "discussion"
-            elif "limit" in para.text.lower() and len(para.text) < 45:
-                current_header = "limitations"
-            elif "conclusion" in para.text.lower() and len(para.text) < 45:
+            elif "conclu" in para.text.lower() and len(para.text) < 45:
                 current_header = "conclusion"
             elif "references" in para.text.lower() and len(para.text) < 45:
                 current_header = "references"

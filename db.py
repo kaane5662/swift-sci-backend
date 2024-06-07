@@ -14,13 +14,13 @@ try:
 
     vstore = AstraDBVectorStore(
         embedding=OpenAIEmbeddings(api_key=OPENAI_API_KEY),
-        collection_name="articlestore1",
+        collection_name="articlestore2",
         token=ASTRA_DB_APPLICATION_TOKEN,
         api_endpoint=ASTRA_DB_API_ENDPOINT,
         namespace="research_papers"
     )
 
 except Exception as e:
-    print(f"Failed to connect ASTRA DB Vector store: {e}")
+    print(f"Failed to connect to ASTRA DB Vector store: {e}")
 
 
