@@ -39,7 +39,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: swiftsci-ec2:latest
+          tags: kaane0169/swiftsci-ec2:latest
 
       - name: Retrieve and Run Docker Images on EC2
         run: |
@@ -56,10 +56,11 @@ jobs:
               sudo apt-get install -y docker-ce
               sudo usermod -aG docker $USER
             fi
-            docker pull swiftsci-ec2:latest
+            docker pull kaane0169/swiftsci-ec2:latest
             docker stop swiftsci-ec2 || true
             docker rm swiftsci-ec2 || true
-            docker run -d --name swiftsci-ec2 -p 80:5000 swiftsci-ec2:latest
+            docker run -d --name swiftsci-ec2 -p 80:5000 kaane0169/swiftsci-ec2
+
           ENDSSH
 
       
