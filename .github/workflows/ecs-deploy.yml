@@ -56,6 +56,7 @@ jobs:
         registry-type: public
 
     - name: Build, tag, and push docker image to Amazon ECR Public
+      
       run: |
         aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/j6k4z2y5
         docker build -t swiftsci .
