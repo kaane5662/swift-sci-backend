@@ -19,6 +19,13 @@ app.register_blueprint(profiles_bp)
 app.register_blueprint(papers_bp)
 app.register_blueprint(webhooks_bp)
 app.secret_key = os.environ.get("SERVER_SECRET")
+
+app.config.update(
+    SESSION_COOKIE_SECURE=True,  # Set to True if using HTTPS
+    SESSION_COOKIE_HTTPONLY=True,
+    SESSION_COOKIE_SAMESITE='Lax'  # Adjust based on your needs
+)
+
 # app.json_encoder = CustomJSONEncoder
 
 
