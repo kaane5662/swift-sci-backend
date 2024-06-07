@@ -35,7 +35,7 @@ jobs:
           docker stop swiftsci-backend
 
   deploy:
-    needs: build-and-test-backend
+    needs: build-and-test
     runs-on: ubuntu-latest
 
     steps:
