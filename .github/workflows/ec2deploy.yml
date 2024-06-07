@@ -43,7 +43,9 @@ jobs:
 
       - name: Retrieve and Run Docker Images on EC2
         run: |
-          ssh -i ${{ secrets.SSH_PRIVATE_KEY }} ec2-user@${{ secrets.EC2_HOST }} 'bash -s' << 'ENDSSH'
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ssh_key.pem
+          chmod 600 ssh_key.pem
+          ssh -i ssh_key.pem ec2-user@${{ secrets.EC2_HOST }} 'bash -s' << 'ENDSSH'
 
             if [ -x "$(command -v docker)" ]; then
               echo 'Docker is already installed.'
