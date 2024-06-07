@@ -32,7 +32,7 @@ oauth.register(
     # access_token_url='https://accounts.google.com/o/oauth2/token',
     access_token_params=None,
     refresh_token_url=None,
-    redirect_uri='http://localhost:5000/auth/google',
+    redirect_uri='${process.env.SERVER_DOMAIN}/auth/google',
     client_kwargs={'scope': 'openid profile email'},
     # api_base_url="https://www.googleapis.com/oauth2/v1/",
     server_metadata_url='https://accounts.google.com/.well-known/openid-configuration',
